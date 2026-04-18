@@ -1,0 +1,27 @@
+#!/bin/bash
+
+THEMES_DIR="/usr/share/sddm/themes/sddm-astronaut-theme"
+METADATA="$THEMES_DIR/metadata.desktop"
+AVAILABLE=$(ls "$THEMES_DIR/Themes/" | sed 's/\.conf//')
+
+if [[ -z "$1" ]]; then
+    echo "доступные пресеты:"
+    echo "$AVAILABLE"
+    echo ""
+    CURRENT=$(grep 'ConfigFile' "$METADATA" | sed 's/.*Themes\///' | sed 's/\.conf//')
+    echo "текущий: $CURRENT"
+    exit 0
+fi
+
+PRESET="$1"
+CONF_FILE="$THEMES_DIR/Themes/$PRESET.conf"
+
+if [[ ! -f "$CONF_FILE" ]]; then
+    echo "пресет '$PRESET' не найден"
+    echo "доступные: $AVAILABLE"
+    exit 1
+fi
+
+sudo sed -i "s|ConfigFile=Themes/.*|ConfigFile=Themes/$PRESET.conf|" "$METADATA"
+echo "установлен пресет: $PRESET"
+echo "вступит в силу при следующем входе в систему"

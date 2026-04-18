@@ -1,0 +1,20 @@
+#!/bin/bash
+echo "=== чистка кэша pacman ==="
+sudo paccache -rk2
+
+echo "=== сироты ==="
+ORPHANS=$(pacman -Qdtq)
+if [[ -n "$ORPHANS" ]]; then
+    echo "$ORPHANS"
+    read -p "удалить сироты? [y/N] " confirm
+    [[ "$confirm" == "y" ]] && sudo pacman -Rns $ORPHANS
+else
+    echo "сирот нет"
+fi
+
+echo "=== кэш paru ==="
+read -p "очистить ~/.cache/paru? [y/N] " confirm
+[[ "$confirm" == "y" ]] && rm -rf ~/.cache/paru
+
+echo "=== итог ==="
+df -h /
