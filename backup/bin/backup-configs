@@ -1,0 +1,39 @@
+#!/bin/bash
+BACKUP_DIR="$HOME/dotfiles/backup"
+rm -rf "$BACKUP_DIR"
+mkdir -p "$BACKUP_DIR"
+
+echo "--- бэкап конфигов ---"
+
+# hypr
+mkdir -p "$BACKUP_DIR/hypr/hyprlock"
+cp ~/.config/hypr/hyprlock.conf "$BACKUP_DIR/hypr/"
+cp ~/.config/hypr/keybindings.conf "$BACKUP_DIR/hypr/"
+cp ~/.config/hypr/userprefs.conf "$BACKUP_DIR/hypr/"
+cp ~/.config/hypr/monitors.conf "$BACKUP_DIR/hypr/"
+cp ~/.config/hypr/windowrules.conf "$BACKUP_DIR/hypr/"
+cp ~/.config/hypr/hypridle.conf "$BACKUP_DIR/hypr/"
+cp -r ~/.config/hypr/hyprlock/ "$BACKUP_DIR/hypr/hyprlock/"
+
+# waybar
+mkdir -p "$BACKUP_DIR/waybar/scripts"
+cp ~/.config/waybar/config.jsonc "$BACKUP_DIR/waybar/"
+cp ~/.config/waybar/style.css "$BACKUP_DIR/waybar/"
+cp ~/.config/waybar/user-style.css "$BACKUP_DIR/waybar/"
+cp -r ~/.config/waybar/scripts/ "$BACKUP_DIR/waybar/scripts/"
+
+# walker
+cp -r ~/.config/walker/ "$BACKUP_DIR/walker/"
+
+# tomat
+cp -r ~/.config/tomat/ "$BACKUP_DIR/tomat/"
+
+# скрипты
+cp -r ~/.local/bin/ "$BACKUP_DIR/bin/"
+
+# zsh
+cp ~/.zshrc "$BACKUP_DIR/"
+
+echo "готово: $BACKUP_DIR"
+du -sh "$BACKUP_DIR"
+
