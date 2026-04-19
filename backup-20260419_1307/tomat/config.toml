@@ -1,0 +1,7 @@
+[timer]
+work = 50.0       
+break_time = 10.0  
+long_break = 30.0  
+long_break_interval = 4 
+auto_advance = false
+volume = 0.05     

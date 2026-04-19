@@ -1,0 +1,4 @@
+#!/bin/bash
+tomat daemon start
+sleep 2
+tomat start --work 50 --break 10 --long-break 30
