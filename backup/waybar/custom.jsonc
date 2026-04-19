@@ -59,8 +59,8 @@
       "custom/hyde-menu",
       "custom/power"
     ]
-  }
- "custom/pomodoro": {
+  },
+  "custom/pomodoro": {
     "exec": "~/.config/waybar/scripts/pomodoro.sh",
     "interval": 5,
     "return-type": "json",
