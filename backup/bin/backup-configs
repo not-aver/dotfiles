@@ -34,6 +34,9 @@ cp -r ~/.local/bin/ "$BACKUP_DIR/bin/"
 # zsh
 cp ~/.zshrc "$BACKUP_DIR/"
 
+# waybar
+cp ~/.local/share/waybar/layouts/custom.jsonc "$BACKUP_DIR/waybar/"
+
 echo "готово: $BACKUP_DIR"
 du -sh "$BACKUP_DIR"
 

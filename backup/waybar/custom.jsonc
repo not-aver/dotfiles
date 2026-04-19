@@ -9,7 +9,7 @@
     "$XDG_CONFIG_HOME/waybar/modules/*json*",
     "$XDG_CONFIG_HOME/waybar/includes/includes.json"
   ],
-  "modules-left": ["group/pill#left1", "group/pill#left2", "group/pill#left3"],
+  "modules-left": ["group/pill#left1", "group/pill#left2", "group/pill#left3", "custom/pomodoro"],
   "group/pill#left1": {
     "orientation": "inherit",
     "modules": ["cpu", "memory"]
@@ -60,4 +60,12 @@
       "custom/power"
     ]
   }
+ "custom/pomodoro": {
+    "exec": "~/.config/waybar/scripts/pomodoro.sh",
+    "interval": 5,
+    "return-type": "json",
+    "on-click": "tomat toggle",
+    "on-click-right": "tomat skip",
+    "tooltip": true
+  },
 }
